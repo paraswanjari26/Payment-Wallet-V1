@@ -4,6 +4,7 @@ import com.paymentwallet.dto.ResponseDto;
 import com.paymentwallet.dto.UniversalResponse;
 import com.paymentwallet.dto.UserDto;
 import com.paymentwallet.entity.User;
+import com.paymentwallet.entity.Wallet;
 import com.paymentwallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +26,7 @@ public class WalletController {
 
     @GetMapping(value = "/checkBalance")
     public ResponseEntity<?> checkBalance(@RequestParam String emailId) {
-        UniversalResponse<User> ur = walletService.checkBalance(emailId);
+        UniversalResponse<Wallet> ur = walletService.checkBalance(emailId);
         return new ResponseEntity<>(ur, HttpStatus.OK);
     }
 }

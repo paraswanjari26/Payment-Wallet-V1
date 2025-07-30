@@ -42,10 +42,11 @@ public class UserServiceImpl implements UserService, Constants {
 
         List<Currency> currency = currencyRepository.findAll();
 
+        //wallet creation at the time of user creation
         Wallet wallet = new Wallet();
         wallet.setWalletId(String.valueOf(UUID.randomUUID()));
         wallet.setUser(user);
-        wallet.setCurrency(currency.getFirst());
+        wallet.setCurrency(currency.getFirst());            //initial as there is only one entry that's why we have hardcoded for first value
         wallet.setBalance(0.0);
         walletRepository.save(wallet);
 
