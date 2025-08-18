@@ -42,6 +42,7 @@ public class WalletServiceImpl implements WalletService {
             if (wallet != null) {
                 ur.setObject(wallet);
                 ur.setResponseDto(new ResponseDto("Success", HttpStatus.OK));
+                return ur;
             }
         }
         ur.setResponseDto(new ResponseDto("There is no user registered with above emailId", HttpStatus.NOT_FOUND));

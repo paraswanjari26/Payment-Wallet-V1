@@ -1,5 +1,6 @@
 package com.paymentwallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,10 +26,12 @@ public class Wallet {
     private double balance;
 
     @OneToOne
-    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    @JoinColumn(name = "userId", referencedColumnName = "Id")
+    @JsonBackReference
     private User user;
 
-    @OneToOne(mappedBy = "currency", cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "currencyId", referencedColumnName = "Id")
     private Currency currency;
 
 }

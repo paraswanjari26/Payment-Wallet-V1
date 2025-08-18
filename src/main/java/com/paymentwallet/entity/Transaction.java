@@ -21,6 +21,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
+    @Column(name = "transferId")
+    private String transferId;
+
     @Column(name = "status")
     private String status;
 
@@ -32,4 +35,14 @@ public class Transaction {
 
     @Column(name = "time")
     private LocalTime time;
+
+    @Column(name = "fromEmail")
+    private String fromEmail;
+
+    @Column(name = "toEmail")
+    private String toEmail;
+
+    @ManyToOne
+    @JoinColumn(name = "walletId", referencedColumnName = "Id")
+    private Wallet wallet;
 }
