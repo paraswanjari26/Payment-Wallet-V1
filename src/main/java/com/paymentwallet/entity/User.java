@@ -1,5 +1,6 @@
 package com.paymentwallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.paymentwallet.constant.Constants;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,5 +36,6 @@ public class User implements Constants {
     private int deleted = NON_DELETED;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Wallet wallet;
 }

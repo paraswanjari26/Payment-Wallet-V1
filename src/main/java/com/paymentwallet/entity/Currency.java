@@ -26,7 +26,7 @@ public class Currency {
     private String abbreviation;
 
     @OneToOne
-    @JoinColumn(name = "walletId", referencedColumnName = "walletId")
+    @JoinColumn(name = "walletId", referencedColumnName = "Id")
     private Wallet wallet;
 
 }
